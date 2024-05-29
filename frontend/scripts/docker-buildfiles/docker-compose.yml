@@ -1,3 +1,4 @@
+---
 version: "3"
 
 # NOTE: Docker should be allowed to connect to the X server in your host prior
@@ -7,11 +8,14 @@ version: "3"
 # See https://stackoverflow.com/a/34586732/8401696 for more context.
 
 services:
-  app:
+  appflowy:
     build:
       context: ../../..
       dockerfile: ./frontend/scripts/docker-buildfiles/Dockerfile
+    # This is required to get the docker compose build to work on Portainer
+    pull_policy: build
     image: appflowy/appflowy:latest
+    container_name: appflowy
     stdin_open: true
     # tty: true
     devices:
