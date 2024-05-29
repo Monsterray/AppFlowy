@@ -12,6 +12,8 @@ services:
       context: ../../..
       dockerfile: ./frontend/scripts/docker-buildfiles/Dockerfile
     image: appflowy/appflowy:latest
+    # This is required to get the docker compose build to work on Portainer
+    pull_policy: build
     stdin_open: true
     # tty: true
     devices:
